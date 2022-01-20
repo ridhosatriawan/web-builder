@@ -129,7 +129,7 @@ body {
 
   .side-bar-2-active {
     transition: 1s;
-    left: 100px;
+    left: 70px;
   }
   .img-el {
     width: 220px;
@@ -140,5 +140,13 @@ body {
   }
   .con-content button {
     font-size: 0.6rem;
+  }
+
+  .side-bar {
+    padding: 0.5rem;
+  }
+
+  .contents {
+    margin-left: 60px;
   }
 }

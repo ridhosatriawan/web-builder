@@ -18,6 +18,7 @@ function App() {
     const id = e.target.id;
     if (modal !== "-active") {
       setNavId(id);
+      handleImage(id);
       setModal('-active');
     } else if (navId !== id) {
       setNavId(id);
