@@ -1,13 +1,144 @@
+@import "bulma/css/bulma.css";
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(236, 236, 236);
+  min-height: 105vh;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.top-nav {
+  padding: 0 50px;
+}
+
+.navbar-menu {
+  display: block;
+}
+
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.container-side {
+  margin: 50px 60px;
+}
+
+.img-con {
+  padding: 15px;
+}
+.side-bar,
+.side-bar-2,
+.side-bar-2-active {
+  position: fixed;
+  overflow-y: auto;
+  z-index: 1;
+}
+
+.side-bar {
+  display: flex;
+  flex-direction: column;
+}
+.side-bar button {
+  border: none;
+  background-color: unset;
+}
+
+.side-bar-2 {
+  left: 180px;
+  left: -500px;
+  transition: 1s;
+}
+
+.side-bar-2-active {
+  transition: 1s;
+  left: 180px;
+}
+
+.img-con:hover {
+  background-color: rgb(221, 221, 221);
+  border-radius: 10px;
+}
+
+.contents {
+  margin-left: 100px;
+}
+
+.img-el {
+  width: 350px;
+}
+
+.img-el img {
+  border: 1px solid gray;
+  border-radius: 10px;
+}
+
+.outer-img:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.btn-img {
+  position: absolute;
+  z-index: 10;
+  right: 5px;
+  bottom: 5px;
+  border-radius: 10px;
+  opacity: 0;
+  transition: 1s;
+}
+
+.btn-img .icon,
+.btn-img-cont .icon {
+  color: white;
+}
+
+.img-el:hover .btn-img {
+  opacity: 1;
+  transition: 1s;
+}
+
+.bg-modal-active {
+  width: 90vw;
+  height: 100vh;
+  position: absolute;
+  z-index: 0;
+}
+
+.con-content {
+  display: flex;
+  align-items: start;
+}
+
+@media screen and (max-width: 768px) {
+  .top-nav {
+    padding: 0 10px;
+  }
+
+  .container-side {
+    margin: 20px 15px;
+  }
+  .img-con {
+    padding: 5px;
+  }
+  .content {
+    margin-left: 80px;
+  }
+  .side-bar-2 {
+    left: 100px;
+    left: -500px;
+    transition: 1s;
+  }
+
+  .side-bar-2-active {
+    transition: 1s;
+    left: 100px;
+  }
+  .img-el {
+    width: 220px;
+  }
+
+  .btn-img {
+    opacity: 1;
+  }
+  .con-content button {
+    font-size: 0.6rem;
+  }
 }
