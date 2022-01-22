@@ -8,8 +8,9 @@ export default function Modal(params) {
                 params.images.map((image, index) => (
                     <div key={index} className="outer-img">
                         <figure className="image img-el">
-                            <img src={image} alt="img" />
-                            <button className="button is-small is-dark btn-img">
+                            <img src={image.img} alt="img" />
+                            <button className="button is-small is-dark btn-img"
+                                onClick={() => params.getData(image.id)}>
                                 <span className="icon">
                                     <FontAwesomeIcon icon={faPlus} />
                                 </span>

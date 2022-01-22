@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import Modal from './components/modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
+import parse from 'html-react-parser';
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
   const [modal, setModal] = useState('');
   const [navId, setNavId] = useState();
   const [images, setImages] = useState([]);
+  const [elements, setElements] = useState([]);
 
   const handleClickNav = (e) => {
     const id = e.target.id;
@@ -38,8 +40,34 @@ function App() {
     }
   }
 
-  const nav = ['/nav-1.png', '/nav-2.png', "/nav-3.png"];
-  const head = ['/head-1.png', '/head-2.png'];
+  const deleteElem = (index) => {
+    const element = [...elements];
+
+    const un = element.filter((data, i) => {
+      if (i !== index) return data
+    })
+
+    setElements(un);
+
+  }
+
+  const getData = async (id) => {
+    const req = await fetch(`https://mantap.wlijo.com/${id}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "text/plain",
+      }
+    })
+
+    const res = await req.text();
+    const element = [...elements]
+
+    element.push(res);
+    setElements(element);
+  }
+
+  const nav = [{ img: '/nav-1.png', id: 'navbar1.txt' }, { img: '/nav-2.png', id: 'navbar2.txt' }, { img: '/nav-3.png', id: 'navbar3.txt' }];
+  const head = [{ img: '/head-1.png', id: "head1.txt" }, { img: '/head-2.png', id: "head1.txt" }, { img: '/head-1.png', id: "head1.txt" }];
 
   return (
     <>
@@ -89,21 +117,41 @@ function App() {
             </figure>
           </div>
         </div>
-        <Modal modal={modal} images={images} />
+        <Modal getData={getData} modal={modal} images={images} />
         <div className={'bg-modal' + modal} onClick={() => setModal('')}></div>
         <div className='contents'>
+          {
+            elements.map((element, index) => (
+              <div key={index} className='con-content'>
+                <div className='elem'>
+                  {parse(element)}
+                </div>
+                <button className="button is-dark btn-img-cont ml-2" onClick={() => deleteElem(index)}>
+                  <span className="icon">
+                    <FontAwesomeIcon icon={faTrash} />
+                  </span>
+                </button>
+              </div>
+            ))
+          }
 
-
-          <div className='con-content'>
-            <figure className='img-cont'>
-              <img src='./head-1.png' alt="img" />
-            </figure>
+          {/* <div className='con-content'>
+            <img src='./head-1.png' alt="img" />
             <button className="button is-dark btn-img-cont ml-2">
               <span className="icon">
                 <FontAwesomeIcon icon={faTrash} />
               </span>
             </button>
           </div>
+
+          <div className='con-content'>
+            <img src='./head-1.png' alt="img" />
+            <button className="button is-dark btn-img-cont ml-2">
+              <span className="icon">
+                <FontAwesomeIcon icon={faTrash} />
+              </span>
+            </button>
+          </div> */}
 
 
         </div>
