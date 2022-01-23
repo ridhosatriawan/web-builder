@@ -133,7 +133,11 @@ figure {
 .elem {
   width: 1100px;
 }
-
+@media screen and (max-width: 900px) {
+  .elem {
+    width: 700px;
+  }
+}
 @media screen and (max-width: 768px) {
   .top-nav {
     padding: 0 10px;
