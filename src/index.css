@@ -44,7 +44,7 @@ body {
 .side-bar-2-active {
   position: fixed;
   overflow-y: auto;
-  z-index: 1;
+  z-index: 3;
 }
 
 .side-bar {
@@ -113,9 +113,10 @@ body {
 
 .bg-modal-active {
   width: 90vw;
-  height: 100vh;
-  position: absolute;
-  z-index: 0;
+  height: 80vh;
+  position: fixed;
+  z-index: 1;
+  overflow-y: auto;
 }
 
 .con-content {

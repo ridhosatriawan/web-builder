@@ -37,6 +37,10 @@ function App() {
       setImages(nav);
     } else if (id === "2") {
       setImages(head);
+    } else if (id === "3") {
+      setImages(content);
+    } else {
+      setImages(footer);
     }
   }
 
@@ -52,7 +56,7 @@ function App() {
   }
 
   const getData = async (id) => {
-    const req = await fetch(`https://mantap.wlijo.com/${id}`, {
+    const req = await fetch(`http://localhost:3080/${id}`, {
       method: "GET",
       headers: {
         "Content-Type": "text/plain",
@@ -66,8 +70,10 @@ function App() {
     setElements(element);
   }
 
-  const nav = [{ img: '/nav-1.png', id: 'navbar1.txt' }, { img: '/nav-2.png', id: 'navbar2.txt' }, { img: '/nav-3.png', id: 'navbar3.txt' }];
-  const head = [{ img: '/head-1.png', id: "head1.txt" }, { img: '/head-2.png', id: "head1.txt" }, { img: '/head-1.png', id: "head1.txt" }];
+  const nav = [{ img: '/nav-1.png', id: 'navbar1.txt' }, { img: '/nav-2.png', id: 'navbar2.txt' }];
+  const head = [{ img: '/head-1.png', id: "head1.txt" }, { img: '/head-2.png', id: "head2.txt" }];
+  const content = [{ img: '/content-1.png', id: "content1.txt" }, { img: '/content-2.png', id: "content2.txt" }];
+  const footer = [{ img: '/footer-1.png', id: "footer1.txt" }, { img: '/footer-2.png', id: "footer2.txt" }];
 
   return (
     <>
@@ -109,11 +115,6 @@ function App() {
           <div className='img-con' id='4' onClick={handleClickNav.bind(this)}>
             <figure className="image is-24x24">
               <img src="/footer.png" id='4' alt='img' />
-            </figure>
-          </div>
-          <div className='img-con' id='5' onClick={handleClickNav.bind(this)}>
-            <figure className="image is-24x24">
-              <img src="/image.png" id='5' alt='img' />
             </figure>
           </div>
         </div>
