@@ -133,7 +133,7 @@ figure {
 .elem {
   width: 1100px;
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1000px) {
   .elem {
     width: 600px;
   }
