@@ -56,7 +56,7 @@ function App() {
   }
 
   const getData = async (id) => {
-    const req = await fetch(`http://localhost:3080/${id}`, {
+    const req = await fetch(`https://aku.wlijo.com/${id}`, {
       method: "GET",
       headers: {
         "Content-Type": "text/plain",
