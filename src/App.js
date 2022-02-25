@@ -7,15 +7,11 @@ import parse from "html-react-parser";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { CopyToClipboard } from "react-copy-to-clipboard";
-import htmlToReactParser from "html-to-react";
-import ReactDomServer from "react-dom/server";
 
 function App() {
   useEffect(() => {
     document.title = "Web builder";
   }, []);
-
-  const htmlToReact = new htmlToReactParser().Parser;
 
   const [modal, setModal] = useState("");
   const [navId, setNavId] = useState();
@@ -126,9 +122,6 @@ function App() {
     let id = e.target.id;
     let element = elements[id];
     setCode(element);
-    const reactElement = htmlToReact.parse(element.html);
-    const reactHtml = ReactDomServer.renderToStaticMarkup(reactElement);
-    console.log(reactHtml);
 
     handleModalCode();
   };
