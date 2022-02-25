@@ -27,6 +27,10 @@ body {
   display: block;
 }
 
+.navbar-brand .navbar-item {
+  text-decoration: none;
+}
+
 .top-nav {
   display: flex;
   justify-content: space-between;
@@ -74,7 +78,6 @@ body {
 }
 
 .contents {
-  margin-left: 110px;
   z-index: 0;
 }
 
@@ -106,6 +109,79 @@ body {
   color: white;
 }
 
+.con-content:hover .button.btn-img-cont {
+  opacity: 1;
+  transition: 0.6s;
+}
+
+.tabs li.is-active a {
+  border-bottom: 2px solid red;
+  color: #2f2f2f;
+}
+
+#tab-content {
+  max-height: 70vh;
+}
+
+#tab-content div {
+  display: none;
+}
+
+#tab-content div.is-active {
+  display: block;
+}
+
+div.modal-content {
+  width: 60%;
+}
+
+.tabs:not(:last-child) {
+  margin-bottom: 0;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 1;
+}
+
+div.tabs ul {
+  margin-bottom: 0;
+}
+
+.btn-copy {
+  position: absolute;
+  right: 0;
+  z-index: 0;
+}
+
+.is-active pre {
+  margin-bottom: 0;
+}
+
+.button.btn-img-cont {
+  position: absolute;
+  right: 0;
+  opacity: 0;
+  transition: 0.6s;
+}
+
+.modal-copied {
+  z-index: 5;
+  position: absolute;
+  background-color: white;
+  color: black;
+  padding: 10px;
+}
+
+.modal-copied-none {
+  display: none;
+}
+
+.con-content button.icon2 {
+  position: absolute;
+  right: 5%;
+}
+
 .img-el:hover .btn-img {
   opacity: 1;
   transition: 1s;
@@ -122,6 +198,7 @@ body {
 .con-content {
   display: flex;
   align-items: start;
+  position: relative;
 }
 
 figure {
@@ -131,8 +208,14 @@ figure {
 }
 
 .elem {
-  width: 1100px;
+  width: 1180px;
+  z-index: -10;
 }
+
+.navbar-brand .navbar-item h1 {
+  font-size: 2rem;
+}
+
 @media screen and (max-width: 1000px) {
   .elem {
     width: 600px;
@@ -175,7 +258,10 @@ figure {
   }
 
   .contents {
-    margin-left: 60px;
-    max-width: 260px;
+    max-width: 320px;
+  }
+
+  .navbar-brand .navbar-item h1 {
+    font-size: 1.3rem;
   }
 }
